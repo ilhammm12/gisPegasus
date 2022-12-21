@@ -17,9 +17,10 @@
                       </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                      @forelse ($terminal as $term)
+                    <?php $no = 1; ?>
+                    @forelse ($terminal as $term)
                       <tr>
-                        <td class="text-center">1</td>
+                        <td class="text-center">{{ $no++ }}</td>
                         <td><strong>{{ $term->kode_unik }}</strong></td>
                         <td><strong>{{ $term->nama }}</strong></td>
                         <td><strong>{{ $term->penyedialayanan->nama }}</strong></td>

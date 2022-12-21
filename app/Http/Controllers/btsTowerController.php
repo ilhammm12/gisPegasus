@@ -57,6 +57,14 @@ class btsTowerController extends Controller
         $btstower->delete();
         return redirect()->route('btstower.index')->with(['success' => 'Data Berhasil Dihapus!']);
     }
+    public function show(btstower $btstower){
+        $jenisSumberDaya = jenisSumberDaya::latest()->get();
+        $penyediaLayanan = penyediaLayanan::latest()->get();
+        $tipeTower = tipeTower::latest()->get();
+        $tipeSite = tipeSite::latest()->get();
+        $title = 'Show BTS';
+        return view('admin.page.btsTower_show', compact('title','btstower','jenisSumberDaya','penyediaLayanan','tipeTower','tipeSite'));
+    }
     public function edit(btstower $btstower){
         $jenisSumberDaya = jenisSumberDaya::latest()->get();
         $penyediaLayanan = penyediaLayanan::latest()->get();

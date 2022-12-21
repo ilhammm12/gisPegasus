@@ -14,9 +14,10 @@
                       </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                      @forelse ($konfigurasiTransmisi as $transmisi)
+                    <?php $no = 1; ?>
+                    @forelse ($konfigurasiTransmisi as $transmisi)
                       <tr>
-                        <td class="text-center">1</td>
+                        <td class="text-center">{{$no++}}</td>
                         <td><strong>{{ $transmisi->nama }}</strong></td>
                         <td>{{ $transmisi->keterangan }}</td>
                         <td>

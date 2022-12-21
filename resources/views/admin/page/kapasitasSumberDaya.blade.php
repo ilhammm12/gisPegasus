@@ -14,9 +14,10 @@
                       </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                      @forelse ($kapasitasSumberDaya as $kapasitas)
+                    <?php $no = 1; ?>
+                    @forelse ($kapasitasSumberDaya as $kapasitas)
                       <tr>
-                        <td class="text-center">1</td>
+                        <td class="text-center">{{$no++}}</td>
                         <td><strong>{{ $kapasitas->kapasitas }} VA</strong></td>
                         <td>{{ $kapasitas->keterangan }}</td>
                         <td>

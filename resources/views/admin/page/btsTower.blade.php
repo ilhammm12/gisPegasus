@@ -20,9 +20,10 @@
                       </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                      @forelse ($btsTower as $bts)
+                    <?php $no = 1; ?>
+                    @forelse ($btsTower as $bts)
                       <tr>
-                        <td class="text-center">1</td>
+                        <td class="text-center">{{$no++}}</td>
                         <td><strong>{{ $bts->nama }}</strong></td>
                         <td><strong>{{ $bts->jenissumberdaya->nama . " ". $bts->jenissumberdaya->kapasitassumberdaya->kapasitas }}</strong></td>
                         <td><strong>{{ $bts->penyedialayanan->nama }}</strong></td>
@@ -40,6 +41,8 @@
                             </button>
                                 <div class="dropdown-menu">
                                   <form onsubmit="return confirm('Hapus data ?');" action="{{ route('btstower.destroy', $bts->id) }}" method="POST">
+                                    <a class="dropdown-item" href="{{ route('btstower.show', $bts->id) }}"
+                                        ><i class="bx bx-edit-alt me-1"></i> Show</a>
                                     <a class="dropdown-item" href="{{ route('btstower.edit', $bts->id) }}"
                                       ><i class="bx bx-edit-alt me-1"></i> Edit</a>
                                     @CSRF

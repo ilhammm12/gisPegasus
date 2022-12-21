@@ -14,9 +14,10 @@
                       </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                      @forelse ($konfigurasiPower as $power)
+                    <?php $no = 1; ?>
+                    @forelse ($konfigurasiPower as $power)
                       <tr>
-                        <td class="text-center">1</td>
+                        <td class="text-center">{{$no++}}</td>
                         <td><strong>{{ $power->nama }}</strong></td>
                         <td>{{ $power->keterangan }}</td>
                         <td>

@@ -14,9 +14,10 @@
                       </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
+                      <?php $no = 1; ?>
                       @forelse ($tipeTower as $tower)
                       <tr>
-                        <td class="text-center">1</td>
+                        <td class="text-center">{{ $no++ }}</td>
                         <td><strong>{{ $tower->nama }}</strong></td>
                         <td>{{ $tower->model }}</td>
                         <td>

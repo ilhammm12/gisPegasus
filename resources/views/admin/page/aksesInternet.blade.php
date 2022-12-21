@@ -18,9 +18,10 @@
                       </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                      @forelse ($aksesInternet as $internet)
+                    <?php $no = 1; ?>
+                    @forelse ($aksesInternet as $internet)
                       <tr>
-                        <td class="text-center">1</td>
+                        <td class="text-center">{{$no++}}</td>
                         <td><strong>{{ $internet->nama }}</strong></td>
                         <td><strong>{{ $internet->jenissumberdaya->nama." ".$internet->jenissumberdaya->kapasitassumberdaya->kapasitas }}</strong></td>
                         <td>

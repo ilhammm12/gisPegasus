@@ -14,9 +14,10 @@
                       </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                      @forelse ($penyediaLayanan as $layanan)
+                    <?php $no = 1; ?>
+                    @forelse ($penyediaLayanan as $layanan)
                       <tr>
-                        <td class="text-center">1</td>
+                        <td class="text-center">{{$no++}}</td>
                         <td><strong>{{ $layanan->nama }}</strong></td>
                         <td>{{ $layanan->keterangan }}</td>
                         <td>

@@ -15,9 +15,10 @@
                       </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                      @forelse ($jenisSumberDaya as $sumberdaya)
+                    <?php $no = 1; ?>
+                    @forelse ($jenisSumberDaya as $sumberdaya)
                       <tr>
-                        <td class="text-center">1</td>
+                        <td class="text-center">{{$no++}}</td>
                         <td><strong>{{ $sumberdaya->nama }}</strong></td>
                         <td><strong>{{ $sumberdaya->kapasitassumberdaya->kapasitas }}</strong></td>
                         <td>{{ $sumberdaya->keterangan }}</td>

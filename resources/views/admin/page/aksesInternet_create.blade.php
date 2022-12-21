@@ -23,17 +23,22 @@
                             <input name="nama" type="text" class="form-control" placeholder="Ex. Tower Manggar1" />
                         </div>
                         <div class="mb-3">
-                            <label for="font-weight-bold">Gambar</label>
-                            <input type="file" class="form-control" name="gambar">
+                            <div class="d-flex justify-content-around align-items-center">
+                                <img id="blah" style="object-fit: cover; border-radius: 5px;" alt="your image" width="70" height="70" src="https://www.pacifictrellisfruit.com/wp-content/uploads/2016/04/default-placeholder-300x300.png" alt="">
+                                <div>
+                                    <label for="font-weight-bold">Gambar</label>
+                                    <input type="file" class="form-control" name="gambar" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
+                                </div>
+                            </div>
                         </div>
                         <div class="input-group mb-3 justify-content-between">
                             <div style="width: 48%;">
                                 <label class="form-label">Latitude</label>
-                                <input name="latitude" type="text" class="form-control" placeholder="Masukkan Luas Lahan" />
+                                <input id="inputlat" name="latitude" type="text" class="form-control" placeholder="Masukkan Luas Lahan" />
                             </div>
                             <div style="width: 48%;">
                                 <label class="form-label">Longitude</label>
-                                <input name="longitude" type="text" class="form-control" placeholder="Masukkan Luas Lahan" />
+                                <input id="inputlng" name="longitude" type="text" class="form-control" placeholder="Masukkan Luas Lahan" />
                             </div>
                             <div class="form-text">
                                 <p class="d-flex mb-0">

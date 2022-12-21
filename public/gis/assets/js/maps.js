@@ -17,30 +17,43 @@ $(document).ready(function() {
         }
         // SETTING MAP
         var map = L.map('map').setView([-1.241563, 116.858613], 14);
+
         map.addControl(new L.Control.Fullscreen());
 
+        var theMarker = {};
+        map.on('click', function(e) {
+            // alert("Lat, Lon : " + e.latlng.lat + ", " + e.latlng.lng);
+            $("#inputlat").val(e.latlng.lng);
+            $("#inputlng").val(e.latlng.lat);
+            if (theMarker != undefined) {
+                map.removeLayer(theMarker);
+            };
+
+            theMarker = L.marker([e.latlng.lat,e.latlng.lng]).addTo(map);
+        });
+
         const zoom = 16
-        // const gmhybrid = L.tileLayer('http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}',{
-        //     maxZoom: 20,
-        //     subdomains:['mt0','mt1','mt2','mt3']
-        // }).addTo(map);
-        // const gmsatellite = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
-        //     maxZoom: 20,
-        //     subdomains:['mt0','mt1','mt2','mt3']
-        // }).addTo(map);
-        // const gmterrain = L.tileLayer('http://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}',{
-        //     maxZoom: 20,
-        //     subdomains:['mt0','mt1','mt2','mt3']
-        // }).addTo(map);
+        const gmhybrid = L.tileLayer('http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}',{
+            maxZoom: 20,
+            subdomains:['mt0','mt1','mt2','mt3']
+        }).addTo(map);
+        const gmsatellite = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
+            maxZoom: 20,
+            subdomains:['mt0','mt1','mt2','mt3']
+        }).addTo(map);
+        const gmterrain = L.tileLayer('http://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}',{
+            maxZoom: 20,
+            subdomains:['mt0','mt1','mt2','mt3']
+        }).addTo(map);
         const gmstreet = L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',{
             maxZoom: 20,
             subdomains:['mt0','mt1','mt2','mt3']
         }).addTo(map);
 
         const gmbaseLayers = {
-            // 'Terrain' : gmterrain,
-            // 'Hybrid' : gmhybrid,
-            // 'Satellite' : gmsatellite,
+            'Terrain' : gmterrain,
+            'Hybrid' : gmhybrid,
+            'Satellite' : gmsatellite,
             'Street' : gmstreet
         };
 
@@ -270,6 +283,7 @@ $(document).ready(function() {
             icon: 'leaflet-control-locate-location-arrow',
         };
         L.control.locate(optionsLocate).addTo(map);
+
     });
 
     // var polygon = L.polygon([
@@ -283,8 +297,4 @@ $(document).ready(function() {
     //     .setContent("I am a standalone popup.")
     //     .openOn(map);
 
-    // function onMapClick(e) {
-    //     alert("You clicked the map at " + e.latlng);
-    // }
 
-    // map.on('click', onMapClick);
